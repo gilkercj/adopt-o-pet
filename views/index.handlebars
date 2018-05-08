@@ -1,0 +1,37 @@
+<h1>Adopt-o-pet</h1>
+
+<h3>Pets up for adoption</h2>
+
+  <ul>
+    {{#each data}} 
+    {{#unless adopted}}
+    <li>
+      {{id}}: {{name}} 
+
+      <form method="PUT" action="/pets" class="button-size">
+
+        <div class="form-group">
+          <input type="hidden" id="adopt-btn" value={{this.id}}>
+        </div>
+
+        <button type="submit" class="btn btn-default">Adopt</button>
+      </form>
+    </li>
+    {{/unless}}
+    {{/each}}
+  </ul>
+
+
+  <ul>
+    {{#each pets}} {{#if sleepy}} {{> cats/cat-block sleep=false}} {{/if}} {{/each}}
+  </ul> --}}
+
+  <h2>new pet</h2>
+  <form method="POST" action="/pets/updateOne?_method=PUT" class="button-size">
+
+    <div class="form-group">
+      <input type="hidden" id="pet-name" value={{id}}>
+    </div>
+
+    <button type="submit">Add!</button>
+  </form>
