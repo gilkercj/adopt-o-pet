@@ -9,7 +9,7 @@ router.get("/", function (req, res) {
   });
 });
 
-router.post("/pets", function (req, res) {
+router.post("/api/pets", function (req, res) {
   pet.createOne([
     "name"
   ], [
@@ -19,7 +19,7 @@ router.post("/pets", function (req, res) {
     });
 });
 
-router.put("/pets", function (req, res) {
+router.put("/api/pets", function (req, res) {
   pet.updateOne(res.body.id, function (result) {
       res.redirect('/');
     });

@@ -18,9 +18,8 @@ var orm = {
       cb(result);
     });
   },
-  create: function(table, column, values, cb) {
-    var queryString = `INSERT INTO pets; 
-    (${column}) VALUES (${values} )`
+  create: function(column, values, cb) {
+    var queryString = `INSERT INTO pets (${column}) VALUES (${values});`;
 
     console.log(queryString);
 

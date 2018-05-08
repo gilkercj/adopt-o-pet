@@ -2,7 +2,7 @@
 
 <h3>Pets up for adoption</h2>
 
-  <ul>
+  {{!-- <ul>
     {{#each data}} 
     {{#unless adopted}}
     <li>
@@ -24,14 +24,48 @@
 
   <ul>
     {{#each pets}} {{#if sleepy}} {{> cats/cat-block sleep=false}} {{/if}} {{/each}}
-  </ul> --}}
+  </ul> --}} 
 
-  <h2>new pet</h2>
-  <form method="POST" action="/pets/updateOne?_method=PUT" class="button-size">
+  {{!-- <h2>new pet</h2>
+  <form method="POST" action="api/pets/updateOne?_method=PUT" class="button-size">
 
     <div class="form-group">
       <input type="hidden" id="pet-name" value={{id}}>
     </div>
 
     <button type="submit">Add!</button>
-  </form>
+  </form> --}}
+
+  <ul>
+  {{#each data}}
+    {{#unless adopted}}
+    {{id}}:{{name}}
+      {{ adopt/pets-block adopt=true}}
+    {{/unless}}
+  {{/each}}
+</ul>
+
+<h3>Perviously Adopted Pets</h3>
+
+<ul>
+  {{#each data}}
+    {{#if adopted}}
+    {{id}}:{{name}}
+      {{ adopt/pets-block adopt=false}}
+    {{/if}}
+  {{/each}}
+</ul>
+
+<h3>Add a New Adoptee</h3>
+<form class="create-form">
+
+  <div class="form-group">
+    <label for="new-pet">Pet Name:</label>
+    <input type="text" id="new-pet" name="name">
+  </div>
+
+  <div class="form-group">
+
+
+  <button type="submit">Add Cat</button>
+</form>

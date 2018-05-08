@@ -6,13 +6,13 @@ var pet = {
       cb(res);
     });
   },
-  createOne: function (column, values, cb) {
-    orm.create("pets", column, values, function (res) {
+  createOne: function (values, cb) {
+    orm.create(values, function (res) {
       cb(res);
     });
   },
   updateOne: function (id, cb) {
-    orm.update("pets", id, function (res) {
+    orm.update(id, function (res) {
       cb(res);
     });
   }
